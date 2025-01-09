@@ -27,22 +27,22 @@ app.get("/user", async (req, res) => {
 
 //post api to signup user
 app.post("/signup", async (req, res) => {
-  const user = new User(req.body); //creating new instance of the User
+  const user = new User(req.body);      //creating new instance of the User
   try {
     await user.save();
     res.send("user added successfully");
   } catch (err) {
-    res.status(500).send("error while saving user");
+    res.status(500).send("error while saving user"); 
   }
 });
 
 //feed api to get all user
-app.get("/feed", async (rq,res)=>{
+app.get("/feed", async (rq,res)=>{ 
   try{
     const users= await User.find({});
     res.send(users)
   } catch(err){
-    res.status(404).send("user not found")
+    res.status(404).send("user not found")  
   }
 });
 
